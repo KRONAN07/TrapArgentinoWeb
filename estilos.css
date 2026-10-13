@@ -1,246 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trap Argentino | Nueva Generación</title>
 
-/* ===== ESTILO GENERAL ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        body {
+            font-family: "Verdana", sans-serif;
+            background: #f4f0fa;
+            color: #241c2c;
+            line-height: 1.7;
+        }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #111111;
-    color: #eeeeee;
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px;
-    line-height: 1.7;
-}
+        header {
+            background: #ffffff;
+            padding: 35px 8%;
+            border-bottom: 3px solid #7540a8;
+        }
 
-/* ===== ENCABEZADO ===== */
-header {
-    background-color: #1b1b1b;
-    padding: 35px 25px;
-    margin-bottom: 25px;
-    border-left: 6px solid #c11235;
-    border-bottom: 1px solid #383838;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px #00000055;
-}
+        .etiqueta {
+            color: #7540a8;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
 
-header h1 {
-    font-family: Impact, "Arial Black", sans-serif;
-    font-size: 48px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #ffffff;
-    text-shadow: 3px 3px #a10d2c;
-    padding-bottom: 10px;
-}
+        header h1 {
+            color: #21182a;
+            font-family: Georgia, serif;
+            font-size: clamp(32px, 6vw, 60px);
+            line-height: 1.15;
+            margin: 15px 0;
+        }
 
-header p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    text-align: left;
-    color: #bbbbbb;
-    padding-top: 8px;
-}
+        header p {
+            color: #62566d;
+            max-width: 600px;
+        }
 
-/* ===== TÍTULOS ===== */
-h2, h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-}
+        nav {
+            background: #39204f;
+            padding: 15px 8%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
 
-h2 {
-    font-size: 25px;
-    margin-bottom: 18px;
-    color: #ffffff;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #c11235;
-    padding-bottom: 8px;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-h3 {
-    font-size: 19px;
-    margin: 18px 0 8px;
-    color: #e0445e;
-}
+        nav a:hover {
+            color: #d8b5ff;
+        }
 
-/* ===== SECCIONES ===== */
-section {
-    background-color: #1b1b1b;
-    padding: 25px;
-    margin-bottom: 20px;
-    border: 1px solid #333333;
-    border-radius: 5px;
-}
+        main {
+            width: 84%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
 
-/* ===== PÁRRAFOS ===== */
-p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 12px;
-    text-align: left;
-    color: #cccccc;
-}
+        .introduccion {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 55px;
+        }
 
-/* ===== IMÁGENES ===== */
-img.imagen-kim {
-    display: block;
-    width: 100%;
-    max-width: 450px;
-    height: 280px;
-    object-fit: cover;
-    margin: 20px auto;
-    padding: 0;
-    border-radius: 5px;
-    border: 2px solid #c11235;
-}
+        .introduccion h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
 
-/* ===== LISTAS ===== */
-ul, ol {
-    padding-left: 28px;
-    margin: 15px 0;
-    font-size: 16px;
-    line-height: 1.8;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        .introduccion p {
+            color: #5c5065;
+        }
 
-li {
-    padding-left: 5px;
-    margin-bottom: 8px;
-}
+        .frase {
+            background: #e6d5f8;
+            border-left: 6px solid #7540a8;
+            padding: 28px;
+            border-radius: 4px 18px 18px 4px;
+        }
 
-li::marker {
-    color: #e0445e;
-}
+        .frase strong {
+            display: block;
+            color: #54247e;
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
 
-strong {
-    color: #ffffff;
-}
+        .seccion-titulo {
+            font-family: Georgia, serif;
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
 
-/* ===== ENLACES ===== */
-a {
-    color: #ff536e;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
+        .subtitulo {
+            color: #746780;
+            margin-bottom: 28px;
+        }
 
-a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
+        .artistas {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-bottom: 55px;
+        }
 
-/* ===== ¿SABÍAS QUE? ===== */
-.sabias-que {
-    background-color: #29171c;
-    padding: 25px;
-    border-left: 5px solid #c11235;
-    border-bottom: none;
-}
+        .artista {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e3d6ef;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
 
-.sabias-que h2 {
-    color: #ffffff;
-}
+        .artista:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px #39204f18;
+        }
 
-/* ===== OPINIÓN PERSONAL ===== */
-.opinion-personal {
-    background-color: #222222;
-    padding: 25px;
-    border: 1px solid #444444;
-    border-top: 4px solid #c11235;
-    border-radius: 5px;
-}
+        .numero {
+            background: #7540a8;
+            color: white;
+            padding: 10px 20px;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
 
-.opinion-personal h2 {
-    border-bottom: 2px solid #c11235;
-    padding-bottom: 10px;
-}
+        .artista-contenido {
+            padding: 24px;
+        }
 
-.opinion-personal h3 {
-    color: #ff536e;
-}
+        .artista h3 {
+            font-family: Georgia, serif;
+            font-size: 29px;
+            margin-bottom: 10px;
+        }
 
-/* ===== PIE DE PÁGINA ===== */
-.pie-pagina {
-    background-color: #080808;
-    color: #ffffff;
-    padding: 30px 20px;
-    margin-top: 35px;
-    text-align: center;
-    border-top: 4px solid #c11235;
-    border-radius: 5px;
-}
+        .artista p {
+            color: #62566d;
+            margin-bottom: 15px;
+        }
 
-.pie-pagina h2 {
-    color: #ff536e;
-    font-size: 22px;
-    border-bottom: none;
-}
+        .tag {
+            display: inline-block;
+            background: #eee2fa;
+            color: #62318d;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
 
-.pie-pagina p {
-    color: #bbbbbb;
-    text-align: center;
-}
+        .historia {
+            background: #39204f;
+            color: white;
+            padding: 35px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
 
-.frase {
-    margin-top: 20px;
-    font-style: italic;
-}
+        .historia h2 {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
 
-.cita {
-    color: #ff536e;
-    text-align: center;
-}
+        .historia p {
+            color: #e4d8ef;
+        }
 
-.copyright {
-    border-top: 1px solid #383838;
-    margin-top: 20px;
-    padding-top: 20px;
-    font-size: 13px;
-}
+        .datos {
+            background: white;
+            border: 1px solid #e3d6ef;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 40px;
+        }
 
-/* ===== DISEÑO PARA CELULARES ===== */
-@media (max-width: 600px) {
-    body {
-        padding: 12px;
-    }
+        .datos h2 {
+            font-family: Georgia, serif;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
 
-    header {
-        padding: 25px 18px;
-    }
+        .dato {
+            padding: 13px 0;
+            border-bottom: 1px solid #eee6f5;
+        }
 
-    header h1 {
-        font-size: 36px;
-        letter-spacing: 1px;
-    }
+        .dato:last-child {
+            border-bottom: none;
+        }
 
-    h2 {
-        font-size: 22px;
-    }
+        .dato strong {
+            color: #7540a8;
+        }
 
-    section {
-        padding: 20px;
-    }
+        footer {
+            background: #21182a;
+            color: #eee4f8;
+            text-align: center;
+            padding: 28px 15px;
+            font-size: 13px;
+        }
 
-    img.imagen-kim {
-        height: 230px;
-    }
+        footer span {
+            color: #cba4f3;
+        }
 
-    .sabias-que,
-    .opinion-personal {
-        padding: 20px;
-    }
+        @media (max-width: 700px) {
+            header {
+                padding: 28px 6%;
+            }
 
-    .pie-pagina {
-        padding: 25px 15px;
-    }
-}
+            main {
+                width: 90%;
+            }
+
+            .introduccion {
+                grid-template-columns: 1fr;
+            }
+
+            .artistas {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 6%;
+                gap: 15px;
+            }
+
+            .historia {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="etiqueta">Música urbana · Argentina</div>
+        <h1>TRAP<br>ARGENTINO</h1>
+        <p>
+            Una nueva generación de artistas que transformó
+            la música urbana con sus sonidos, letras y estilos.
+        </p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#artistas">Artistas</a>
+        <a href="#historia">Historia</a>
+        <a href="#alumno">Datos del alumno</a>
+    </nav>
+
+    <main>
+
+        <section class="introduccion" id="inicio">
+            <div>
+                <h2>Una escena que marcó una generación</h2>
+                <p>
+                    El trap argentino combina influencias del hip-hop,
+                    el rap y la música electrónica. Gracias a internet
+                    y las plataformas digitales, sus artistas lograron
+                    llegar a millones de personas dentro y fuera de
+                    Latinoamérica.
+                </p>
+            </div>
+
+            <div class="frase">
+                <strong>Una voz propia</strong>
+                <p>
+                    Ritmos modernos, identidad, creatividad y nuevas
+                    formas de contar experiencias a través de la música.
+                </p>
+            </div>
+        </section>
+
+        <section id="artistas">
+            <h2 class="seccion-titulo">Artistas destacados</h2>
+            <p class="subtitulo">
+                Cuatro referentes de la música urbana argentina.
+            </p>
+
+            <div class="artistas">
+
+                <article class="artista">
+                    <div class="numero">01 / ARTISTA</div>
+                    <div class="artista-contenido">
+                        <h3>Duki</h3>
+                        <p>
+                            Es uno de los principales referentes del trap
+                            argentino. Ganó reconocimiento gracias a las
+                            batallas de freestyle y posteriormente desarrolló
+                            una exitosa carrera musical.
+                        </p>
+                        <span class="tag">Trap y rap</span>
+                    </div>
+                </article>
+
+                <article class="artista">
+                    <div class="numero">02 / ARTISTA</div>
+                    <div class="artista-contenido">
+                        <h3>Khea</h3>
+                        <p>
+                            Destacó por combinar el trap con sonidos
+                            melódicos y por participar en la expansión
+                            internacional de la música urbana argentina.
+                        </p>
+                        <span class="tag">Trap melódico</span>
+                    </div>
+                </article>
+
+                <article class="artista">
+                    <div class="numero">03 / ARTISTA</div>
+                    <div class="artista-contenido">
+                        <h3>Nicki Nicole</h3>
+                        <p>
+                            Cantante y compositora que fusiona estilos
+                            urbanos con R&B y otros géneros. Se convirtió
+                            en una figura importante de la música
+                            latinoamericana.
+                        </p>
+                        <span class="tag">Urbano y R&B</span>
+                    </div>
+                </article>
+
+                <article class="artista">
+                    <div class="numero">04 / ARTISTA</div>
+                    <div class="artista-contenido">
+                        <h3>Trueno</h3>
+                        <p>
+                            Rapero argentino conocido por su energía,
+                            sus raíces en el freestyle y sus canciones
+                            inspiradas en el hip-hop y la cultura urbana.
+                        </p>
+                        <span class="tag">Rap y hip-hop</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="historia" id="historia">
+            <h2>¿Cómo surgió el trap argentino?</h2>
+            <p>
+                El género creció durante la década de 2010, impulsado
+                por las competencias de freestyle, las redes sociales
+                y las plataformas digitales. Artistas emergentes
+                comenzaron a publicar sus canciones y a construir
+                comunidades de seguidores. Con el tiempo, la escena
+                alcanzó reconocimiento internacional y amplió sus
+                influencias musicales.
+            </p>
+        </section>
+
+        <section class="datos" id="alumno">
+            <h2>Datos del alumno</h2>
+
+            <div class="dato">
+                <strong>Nombre del alumno:</strong><br>
+                Mancilla Reyes Aleyda Shelaju
+            </div>
+
+            <div class="dato">
+                <strong>Especialidad:</strong><br>
+                Programación
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Proyecto escolar de <span>Programación</span></p>
+        <p>Trap argentino · Música y cultura urbana</p>
+    </footer>
+
+</body>
+</html>
